@@ -10,7 +10,7 @@ class OccurrencesChecker
     {
         freqQuery = new Dictionary<int, int>();
     }
-
+    //insert x in data structure
     public void Insert(int x)
     {
         if (freqQuery.ContainsKey(x))
@@ -22,7 +22,7 @@ class OccurrencesChecker
             freqQuery[x] = 1;
         }
     }
-
+    //delete one occurrence of data structure, if present.
     public void Delete(int y)
     {
         if (freqQuery.ContainsKey(y) && freqQuery[y] > 0)
@@ -30,7 +30,7 @@ class OccurrencesChecker
             freqQuery[y]--;
         }
     }
-
+    //Check if any integer is present whose frequency is exactly z if yes printing 1 else 0.
     public int CheckFrequency(int z)
     {
         return freqQuery.ContainsValue(z) ? 1 : 0;
@@ -48,13 +48,14 @@ class Program
         int q = int.Parse(Console.ReadLine());
 
         int[][] queries = new int[q][];
-
+       //Accepting queries from user
         for (int i = 0; i < q; i++)
         {
             Console.WriteLine($"Enter query {i + 1} :");
             queries[i] = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
         }
         Console.WriteLine("Result :\n ");
+
         foreach (var query in queries)
         {
             int operation = query[0];
